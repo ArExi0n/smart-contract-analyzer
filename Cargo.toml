@@ -2,5 +2,78 @@
 name = "smartcontract-analyzer"
 version = "0.1.0"
 edition = "2024"
+repository = "https://github.com/ArExi0n/smart-contract-analyzer.git"
+
+[bin]
+name = "arex"
+path = "src/main.rs"
 
 [dependencies]
+# solidity compilation & AST
+solang-parser = "0.3.5"
+
+# cli
+clap = { version = "4", feature = ["dervie", "env"] }
+
+# Serializaion 
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "1.1.4+spec-1.1.0"
+
+# Error handdling
+thiserror = "2"
+anyhow = "1"
+
+# Async (pain in the ass)
+tokio = { version = "1", features = ["full"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# crypto - hashing
+sha2 = "0.10"
+hex = "0.4"
+
+# File handling
+walkdir = "2"
+globset = "0.4"
+
+# colored terminal output
+colored = "2"
+comfy-table = "7"
+indicatif = "0.17"
+
+# Regex for pattern matching
+regex = "1"
+
+# semver for version handling
+semver = { version = "1", features = ["serde"] }
+
+# Petgraph for graph analysis
+petgraph = "0.6"
+
+# uuid
+uuid = { version = "1", features = ["v4"] }
+
+# Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# rayon for parallelism
+rayon = "1"
+
+[dev-dependencies]
+tempfile = "3"
+assert_cmd = "2"
+predicates = "3"
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "analysis_benchmark"
+harness = false
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+strip = true
