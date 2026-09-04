@@ -6,7 +6,4 @@ mod ingestion;
 mod printers;
 mod reporting;
 
-use ast::*;
-use compiler::*;
-
 fn main() {}

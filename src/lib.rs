@@ -6,4 +6,6 @@ pub mod ingestion;
 pub mod printers;
 pub mod reporting;
 
+use ast::*;
 use compiler::*;
+use context::*;

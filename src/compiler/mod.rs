@@ -2,12 +2,12 @@ use std::path::Path;
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Deserialize, Serialize)]
 pub enum ProjectType {
     Foundry,
     Hardhat,
-    Bare,
     Unknown,
+    Bare,
 }
 
 pub struct CompilerManager;
