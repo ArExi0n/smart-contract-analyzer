@@ -99,7 +99,7 @@ pub fn parse_solidity(source: &str, path: &Path) -> Result<ParsedSource, String>
         ));
     }
 
-    // extract pragms and import info from top-level parts
+    // extract pragmas and import info from top-level parts
     let mut pragmas = Vec::new();
     let mut imports = Vec::new();
 
@@ -141,9 +141,9 @@ pub fn parse_solidity(source: &str, path: &Path) -> Result<ParsedSource, String>
             },
             pt::SourceUnitPart::ImportDirective(import) => {
                 let import_path = match import {
-                    pt::Import::Plain(ip, _loc) => extract_import_path(&ip),
-                    pt::Import::GlobalSymbol(ip, _, _loc) => extract_import_path(&ip),
-                    pt::Import::Rename(ip, _, _loc) => extract_import_path(&ip),
+                    pt::Import::Plain(ip, _loc) => extract_import_path(ip),
+                    pt::Import::GlobalSymbol(ip, _, _loc) => extract_import_path(ip),
+                    pt::Import::Rename(ip, _, _loc) => extract_import_path(ip),
                 };
                 let loc = match import {
                     pt::Import::Plain(_, loc) => *loc,

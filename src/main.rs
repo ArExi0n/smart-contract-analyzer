@@ -1,9 +1,4 @@
-mod ast;
-mod compiler;
-mod context;
-mod detectors;
-mod ingestion;
-mod printers;
-mod reporting;
+#[allow(unused_imports)]
+use smartcontract_analyzer::{ast, compiler, context, detectors, ingestion, printers, reporting};
 
 fn main() {}
