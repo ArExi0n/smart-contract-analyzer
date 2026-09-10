@@ -11,14 +11,14 @@ pub struct ParsedSource {
     pub imports: Vec<ImportInfo>,
 }
 
-// information about a pragma directive
+// Information about a pragma directive
 #[derive(Debug, Clone)]
 pub struct PragmaInfo {
     pub loc: Loc,
     pub version_req: String,
 }
 
-//information about an import directive
+// Information about an import directive
 #[derive(Debug, Clone)]
 pub struct ImportInfo {
     pub loc: Loc,
@@ -57,7 +57,7 @@ impl Loc {
     }
 }
 
-// convert a byte offset into (line, column ) both 1 indexed
+// convert a byte offset into (line, column) both 1 indexed
 fn offset_to_line_col(source: &str, offset: usize) -> (usize, usize) {
     let mut line = 1;
     let mut col = 1;
